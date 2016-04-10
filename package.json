@@ -1,0 +1,28 @@
+{
+  "name": "behaviorapp",
+  "version": "1.0.0",
+  "description": "School Shaped d+b 2 cycle - feedback app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aloverso/behaviorapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aloverso/behaviorapp/issues"
+  },
+  "homepage": "https://github.com/aloverso/behaviorapp#readme",
+  "dependencies": {
+    "body-parser": "^1.10.2",
+    "cookie-parser": "^1.3.3",
+    "express": "^4.11.1",
+    "express-handlebars": "^1.1.0",
+    "mongoose": "^4.4.7",
+    "morgan": "^1.5.1",
+    "util": "0.10.3"
+  }
+}
