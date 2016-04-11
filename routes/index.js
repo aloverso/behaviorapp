@@ -11,26 +11,23 @@ routes.home = function(req, res) {
         'name' : 'Avalon'
       },
 			{
-        'name': 'Paige'
+        'name': 'John'
       },
 			{
-        'name': 'Paige'
+        'name': 'Isaac'
       },
 			{
-        'name': 'Paige'
+        'name': 'Cameron'
       },
 			{
-        'name': 'Paige'
+        'name': 'Zoe'
       },
 			{
-        'name': 'Paige'
+        'name': 'Jessica'
       },
 			{
-        'name': 'Paige'
-      },
-			{
-        'name': 'Paige'
-      },
+        'name': 'Heather'
+      }
 		]
 	});
 };
