@@ -21,13 +21,26 @@
 	padding-top: 100%; 	/* initial ratio of 1:1*/
 }
 
-.si-container {
-
+.background {
+	background-color: #DAC9BB;
 }
 
 .si-box {
-	background: #dddddd;
-	padding: 10px;
+	padding: 3em;
 	margin:10px;
 	border-radius:.5em;
+	text-align: center;
+}
+
+.si-box:nth-of-type(4n) {
+	background-color:rgb(192, 175, 225); /*purple*/
+}
+.si-box:nth-of-type(4n+1) {
+	background-color:rgb(253, 216, 213);/*peach*/
+}
+.si-box:nth-of-type(4n+2) {
+	background-color:rgb(203, 232, 208);/*green*/
+}
+.si-box:nth-of-type(4n+3) {
+	background-color:rgb(250, 242, 183);/*yellow*/
 }
