@@ -1,7 +1,11 @@
 var routes = {};
 var util = require('util');
 
-routes.home = function(req, res) {
+routes.home = function(req,res) {
+	res.render('home');
+}
+
+routes.signin = function(req, res) {
 	res.render('signIn', {'students':
 		[
       {
@@ -30,6 +34,11 @@ routes.home = function(req, res) {
       }
 		]
 	});
+};
+
+
+routes.question = function(req, res) {
+	res.render('question');
 };
 
 module.exports = routes;
