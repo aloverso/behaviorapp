@@ -10,6 +10,7 @@ var logger = require('morgan');
 
 // ...local
 var index = require('./routes/index.js');
+var app = express();
 
 
 /* CONNECT TO MONGOOSE */
@@ -17,7 +18,6 @@ mongoose.connect(process.env.MONGOURI || 'mongodb://localhost/test');
 
 
 /* CONFIG APP */
-var app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
