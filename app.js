@@ -29,6 +29,9 @@ app.set('view engine', 'handlebars');
 
 /* ROUTING */
 app.get('/', index.home);
+app.get('/signin', index.signin);
+app.get('/question', index.question);
+
 
 app.listen(process.env.PORT || 3000);
 console.log("Running on port 3000");
