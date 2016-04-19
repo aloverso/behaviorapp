@@ -28,7 +28,7 @@ app.set('view engine', 'handlebars');
 
 
 /* ROUTING */
-app.get('/', index.home);
+app.get('/', index.signin);
 app.get('/signin', index.signin);
 app.get('/question', index.question);
 
