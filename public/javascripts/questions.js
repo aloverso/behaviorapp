@@ -33,7 +33,7 @@ var scenarios = {
 	]
 };
 
-/* 
+/*
 this function sets the header question to the text of q and
 sets the #values div to be boxes, each one having the text of one of the
 King Values as an option
@@ -84,14 +84,14 @@ function makevals(val, finish) {
 	for (var i=0; i<scenarios[val].length; i++) {
 		txt = scenarios[val][i]['text'];
 		var $valbox = $('#template').clone();
-		
+
 		// if not last question, we go back to making questions for next question
 		// otherwise, we will eventually redirect to logout/finish page
 		if (!finish) {
 			$valbox.attr('onclick','makequestions(qwell)');
 		}
 		else {
-			$valbox.attr('onclick',''); //redirect here
+			$valbox.attr('onclick',"location.href='/finish';"); //redirect here
 		}
 		$valbox.css('display','block');
 		$valbox.find('i').remove();
@@ -99,7 +99,7 @@ function makevals(val, finish) {
 		$valbox.find('audio').remove();
 		$('#scenarios').append($valbox);
 	}
-		
+
 }
 
 // start by making questions about what you struggled with

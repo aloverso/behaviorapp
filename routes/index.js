@@ -1,6 +1,9 @@
 var routes = {};
 var util = require('util');
 
+var Student = require('../models/studentModel.js');
+var Response = require('../models/responseModel.js');
+
 routes.home = function(req,res) {
 	res.render('home');
 },
@@ -39,6 +42,10 @@ routes.signin = function(req, res) {
 
 routes.question = function(req, res) {
 	res.render('question');
+},
+
+routes.finish = function(req, res) {
+	res.render('finish');
 }
 
 module.exports = routes;

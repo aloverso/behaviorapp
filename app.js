@@ -31,6 +31,7 @@ app.set('view engine', 'handlebars');
 app.get('/', index.signin);
 app.get('/signin', index.signin);
 app.get('/question', index.question);
+app.get('/finish', index.finish);
 
 
 app.listen(process.env.PORT || 3000);

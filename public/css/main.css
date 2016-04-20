@@ -18,6 +18,7 @@
 	position: relative;
 	width: 100%;		/* desired width */
 }
+
 .box:before{
 	content: "";
 	display: block;
