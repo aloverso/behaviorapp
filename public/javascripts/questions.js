@@ -33,6 +33,10 @@ var scenarios = {
 	]
 };
 
+function hella(txt) {
+	console.log('holla'+txt);
+}
+
 /*
 this function sets the header question to the text of q and
 sets the #values div to be boxes, each one having the text of one of the
@@ -43,17 +47,27 @@ function makequestions(q) {
 	$('#q').html(q);
 	for (var i=0; i<values.length; i++) {
 		txt = values[i]['name']; // name of King Value
+		url = values[i]['url'];
 		var $valbox = $('#template').clone();
 
 		// when clicking box, it makes the values for that value
-		$valbox.attr('onclick','makevals("'+txt+'",'+(q===qwell)+')');
+		
 		$valbox.attr('id','');
-		$valbox.find('div.option').attr('id',txt);
 		$valbox.css('display','block');
-		$valbox.find('i').attr('id', 'icon'+ txt);
-		$valbox.find('p').html(txt);
+		$valbox.find('i').attr('id', txt);
+
 		$valbox.find('audio').attr('id', 'audio'+txt);
-		$valbox.find('audio').attr('src', values[i]['url']);
+		$valbox.find('audio').attr('src', url);
+
+		$valbox.find('i').click(function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			$('#audio'+this.id)[0].play();
+			return false;
+		});
+
+		$valbox.attr('onclick','makevals("'+txt+'",'+(q===qwell)+')');
+		$valbox.find('p').html(txt);
 		$('#values').append($valbox);
 	}
 }
@@ -75,9 +89,17 @@ function makevals(val, finish) {
 	// if it's not the last (it's first), it's the struggle with question
 	if (!finish) {
 		$('#q').html('In what way did you struggle with '+val+'?');
+		$.post('saveanswer',{
+			'question':'StruggleQuestion',
+			'response':val
+		});
 	}
 	else {
 		$('#q').html('In what way did you do '+val+' well?');
+		$.post('saveanswer',{
+			'question':'WellQuestion',
+			'response':val
+		})
 	}
 
 	// loop through scenario for the give value
@@ -85,14 +107,8 @@ function makevals(val, finish) {
 		txt = scenarios[val][i]['text'];
 		var $valbox = $('#template').clone();
 
-		// if not last question, we go back to making questions for next question
-		// otherwise, we will eventually redirect to logout/finish page
-		if (!finish) {
-			$valbox.attr('onclick','makequestions(qwell)');
-		}
-		else {
-			$valbox.attr('onclick',"location.href='/finish';"); //redirect here
-		}
+		$valbox.attr('onclick','logScenario("'+txt+'",'+finish+')');
+		
 		$valbox.css('display','block');
 		$valbox.find('i').remove();
 		$valbox.find('p').html(txt);
@@ -100,6 +116,19 @@ function makevals(val, finish) {
 		$('#scenarios').append($valbox);
 	}
 
+}
+
+function logScenario(txt, finish) {
+	$.post('saveanswer',{
+			'question': (finish ? 'WellScenario' : 'StruggleScenario'),
+			'response':txt
+		});
+	if (finish) {
+		location.href='/finish';
+	}
+	else {
+		makequestions(qwell);
+	}
 }
 
 // start by making questions about what you struggled with

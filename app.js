@@ -32,6 +32,8 @@ app.get('/', index.signin);
 app.get('/signin', index.signin);
 app.get('/question', index.question);
 app.get('/finish', index.finish);
+app.post('/savename', index.savename);
+app.post('/saveanswer', index.saveanswer);
 
 
 app.listen(process.env.PORT || 3000);

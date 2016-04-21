@@ -6,7 +6,7 @@
 <div class="row align-spaced large-up-4">
   {{#each students}}
 
-  <div class="column si-box">
+  <div class="column si-box" onclick="savename('{{name}}')">
     <a style="display:block" href="/question">
     <span class="names">{{name}}</span>
       </a>
@@ -14,3 +14,5 @@
 
   {{/each}}
 </div>
+
+<script src="javascripts/signin.js"></script>

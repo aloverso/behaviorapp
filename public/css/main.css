@@ -36,11 +36,20 @@
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 500;
-	line-height: 26.4px;
+	line-height: 60px;
 	margin:40px;
 }
 
 .names {
+	font-family: 'Varela Round';
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+}
+
+p {
 	font-family: 'Varela Round';
 	font-size: 24px;
 	font-style: normal;
@@ -67,4 +76,8 @@
 }
 .si-box:nth-of-type(4n+3) {
 	background-color:rgb(250, 242, 183);/*yellow*/
+}
+
+i {
+	z-index: 2; /* make it on top */
 }
